@@ -26,15 +26,16 @@
 git clone --recurse-submodules https://github.com/notvenky/eFlesh.git
 cd eFlesh
 conda env create -f env.yml
+conda activate eflesh
 ```
 
 ## Sensor Design
-
+### Tested on Ubuntu 20.04, 22.04 and 24.04
 System pre-requisites
 ```
 sudo apt-get update && sudo apt-get install -y build-essential cmake libgmp-dev libmpfr-dev libcgal-dev libeigen3-dev libsuitesparse-dev libboost-all-dev
 ```
-Single script to build all main packages
+### Note: Running the following command as it is, uses 12 CPU nodes. You can customize by running ```./build.sh cpu_nodes=n``` where you can choose 'n' based on your system.
 ```
 cd microstructure/microstructure_inflators && chmod +x build.sh && ./build.sh
 ```

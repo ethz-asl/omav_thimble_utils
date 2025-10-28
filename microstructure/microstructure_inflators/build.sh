@@ -2,6 +2,18 @@
 # Simple build script for microstructure_inflators
 # This script builds the essential tools needed for eFlesh
 set -e  # Exit on any error
+
+JOBS=12
+for arg in "$@"; do
+  case $arg in
+    cpu_nodes=*) JOBS="${arg#*=}";;
+  esac
+done
+[[ "$JOBS" =~ ^[0-9]+$ ]] || JOBS=8
+[ "$JOBS" -lt 1 ] && JOBS=1
+J="-j$JOBS"
+
+echo "Using $JOBS CPU nodes for building."
 echo "Building microstructure_inflators..."
 install_boost() {
     local BOOST_VERSION="1.83.0"
@@ -38,7 +50,7 @@ install_boost() {
              --with-serialization \
              --with-program_options \
              --with-test \
-             -j$(nproc) \
+             $J \
              install
         
         echo "Boost installed to: $BOOST_INSTALL_DIR"
@@ -151,7 +163,7 @@ install_tbb() {
               -DCMAKE_CXX_FLAGS="-Wno-error=array-bounds -Wno-array-bounds" \
               ..
         
-        make -j$(nproc)
+        make $J
         make install
         
         echo "TBB installed to: $TBB_INSTALL_DIR"
@@ -194,9 +206,9 @@ cmake -DCMAKE_BUILD_TYPE=release \
       ..
 sleep 2
 echo "Building essential tools..."
-make -j$(nproc) stitch_cells_cli
-make -j$(nproc) cut_cells_cli  
-make -j$(nproc) stack_cells
+make $J stitch_cells_cli
+make $J cut_cells_cli  
+make $J stack_cells
 echo "Build completed successfully!"
 echo "Built tools:"
 echo "  - stitch_cells_cli"
