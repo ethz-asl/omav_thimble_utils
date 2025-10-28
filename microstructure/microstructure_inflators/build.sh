@@ -161,10 +161,14 @@ install_tbb() {
     
     export TBB_ROOT="$TBB_INSTALL_DIR"
 }
+
+ORIGINAL_DIR="$(dirname "$0")"
+
 install_system_deps
 install_boost
 install_tbb
-cd "$(dirname "$0")"
+
+cd "$ORIGINAL_DIR"
 echo "Fixing CMake version requirements..."
 find . -name "CMakeLists.txt" -exec sed -i 's/cmake_minimum_required(VERSION 3\.1)/cmake_minimum_required(VERSION 3.10)/g' {} \;
 find . -name "CMakeLists.txt" -exec sed -i 's/cmake_minimum_required(VERSION 3\.2)/cmake_minimum_required(VERSION 3.10)/g' {} \;

@@ -30,27 +30,16 @@ conda env create -f env.yml
 
 ## Sensor Design
 
-To run the cut-cell microstructure optimizers and generate the lattice structures, there are some dependancies to be installed. Please use the following links provided and download [oneTBB](https://github.com/uxlfoundation/oneTBB/blob/master/INSTALL.md) and [BOOST](https://www.boost.org/users/history/version_1_83_0.html) from source.
-
+System pre-requisites
 ```
-cd eFlesh/microstructure/microstructure_inflators
-mkdir build && cd build
+sudo apt-get update && sudo apt-get install -y build-essential cmake libgmp-dev libmpfr-dev libcgal-dev libeigen3-dev libsuitesparse-dev libboost-all-dev
 ```
-Please replace the path placeholders below to the correct local paths, during the installation. 
+Single script to build all main packages
 ```
-cmake -DCMAKE_BUILD_TYPE=release .. -DTBB_ROOT=</path/to/oneTBB/installation> -DBoost_NO_SYSTEM_PATHS=ON -DBOOST_ROOT=</path/to/boost_1_83_0>
-```
-```
-make -j4 stitch_cells_cli
-```
-```
-make -j4 cut_cells_cli
-```
-```
-make -j4 stack_cells
+cd eFlesh/microstructure/ && chmod +x build.sh && ./build.sh
 ```
 
-In the conversion notebooks ```regular.ipynb``` and ```cut-cell.ipynb```, ensure to provide the correct paths against all marked palceholders.
+You're now all set to use ```regular.ipynb``` and ```cut-cell.ipynb```to make your own eFlesh sensors, ensure to provide the correct paths against all marked palceholders - like path to your OBJ/STL fle.
 
 ## Sensor Fabrication
 
