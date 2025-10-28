@@ -162,13 +162,17 @@ install_tbb() {
     export TBB_ROOT="$TBB_INSTALL_DIR"
 }
 
-ORIGINAL_DIR="$(dirname "$0")"
+ORIGINAL_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 install_system_deps
 install_boost
 install_tbb
 
+echo "ORIGINAL_DIR is: $ORIGINAL_DIR"
 cd "$ORIGINAL_DIR"
+echo "Current directory after cd: $(pwd)"
+echo "TBB_ROOT: $TBB_ROOT"
+echo "BOOST_ROOT: $BOOST_ROOT"
 echo "Fixing CMake version requirements..."
 find . -name "CMakeLists.txt" -exec sed -i 's/cmake_minimum_required(VERSION 3\.1)/cmake_minimum_required(VERSION 3.10)/g' {} \;
 find . -name "CMakeLists.txt" -exec sed -i 's/cmake_minimum_required(VERSION 3\.2)/cmake_minimum_required(VERSION 3.10)/g' {} \;
@@ -176,6 +180,7 @@ find . -name "CMakeLists.txt" -exec sed -i 's/cmake_minimum_required(VERSION 3\.
 find . -name "CMakeLists.txt" -exec sed -i 's/cmake_minimum_required(VERSION 3\.4)/cmake_minimum_required(VERSION 3.10)/g' {} \;
 mkdir -p build
 cd build
+echo "Building in directory: $(pwd)"
 echo "Configuring with CMake..."
 cmake -DCMAKE_BUILD_TYPE=release \
       -DCMAKE_POLICY_VERSION_MINIMUM=3.1 \
@@ -184,10 +189,10 @@ cmake -DCMAKE_BUILD_TYPE=release \
       -DBoost_NO_SYSTEM_PATHS=ON \
       -DBOOST_ROOT="$BOOST_ROOT" \
       -DTBB_ROOT="$TBB_ROOT" \
-      -DTBB_DIR="$TBB_ROOT/lib/cmake/TBB" \
       -DMICRO_WITH_TBB=ON \
       -DCMAKE_PREFIX_PATH="$TBB_ROOT" \
       ..
+sleep 2
 echo "Building essential tools..."
 make -j$(nproc) stitch_cells_cli
 make -j$(nproc) cut_cells_cli  

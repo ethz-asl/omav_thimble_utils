@@ -36,7 +36,7 @@ sudo apt-get update && sudo apt-get install -y build-essential cmake libgmp-dev 
 ```
 Single script to build all main packages
 ```
-cd eFlesh/microstructure/ && chmod +x build.sh && ./build.sh
+cd microstructure/microstructure_inflators && chmod +x build.sh && ./build.sh
 ```
 
 You're now all set to use ```regular.ipynb``` and ```cut-cell.ipynb```to make your own eFlesh sensors, ensure to provide the correct paths against all marked palceholders - like path to your OBJ/STL fle.
