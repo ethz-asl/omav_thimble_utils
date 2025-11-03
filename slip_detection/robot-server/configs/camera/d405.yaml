@@ -1,4 +1,0 @@
-_target_: camera.d405_publisher.D405ImagePublisher
-host: ${network.host_address}
-port: ${network.camera_port}
-use_depth: ${use_depth}

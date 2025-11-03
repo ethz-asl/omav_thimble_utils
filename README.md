@@ -1,32 +1,24 @@
-<h1 align="center" style="font-size: 2.0em; font-weight: bold; margin-bottom: 0; border: none; border-bottom: none;">eFlesh: Highly customizable Magnetic Touch Sensing using Cut-Cell Miscrostructures</h1>
+# OMAV Thimble Utils
 
-##### <p align="center"> [Venkatesh Pattabiraman](https://venkyp.com), [Zizhou Huang](https://huangzizhou.github.io/), [Daniele Panozzo](https://cims.nyu.edu/gcl/daniele.html), [Denis Zorin](https://cims.nyu.edu/gcl/denis.html), [Lerrel Pinto](https://www.lerrelpinto.com/) and [Raunaq Bhirangi](https://raunaqbhirangi.github.io/)</p>
-##### <p align="center"> New York University </p>
-
-<!-- <p align="center">
-  <img src="assets/eflesh.gif">
- </p> -->
-
-#####
-<div align="center">
-    <a href="https://e-flesh.com"><img src="https://img.shields.io/static/v1?label=Project%20Page&message=Website&color=blue"></a> &ensp;
-    <a href="https://arxiv.org/abs/2506.09994"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv&color=red"></a> &ensp; 
-    <a href="https://github.com/notvenky/eFlesh/blob/main/microstructure/README.md"><img src="https://img.shields.io/static/v1?label=CAD2eFlesh&message=Tool&color=lightblue"></a> &ensp;
-    <a href="mailto:venkatesh.p@nyu.edu">
-      <img src="https://img.shields.io/static/v1?label=Questions?&amp;message=Reach%20Out&amp;color=purple">
-    </a>
-    <!-- <a href="https://github.com/notvenky/eFlesh/tree/main/characterization/datasets"><img src="https://img.shields.io/static/v1?label=Characterization&message=Datasets&color=blue"></a> &ensp; -->
-    
-</div>
-
+Forked from the [eFlesh](https://github.com/notvenky/eFlesh) repo, this is a trimmed down version for the OMAV platform.
 #####
 
 ## Getting Started
 ```
-git clone --recurse-submodules https://github.com/notvenky/eFlesh.git
-cd eFlesh
+git clone --recurse-submodules git@github.com:ethz-asl/omav_thimble_utils.git
+cd omav_thimble_utils
+```
+
+create python env e.g.
+```
 conda env create -f env.yml
-conda activate eflesh
+conda activate thimble
+```
+
+```
+python -m venv /path/to/venv/thimble
+source /path/to/thimble/bin/activate
+pip install numpy scipy reskin-sensor matplotlib
 ```
 
 ## Sensor Design
