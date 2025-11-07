@@ -1,0 +1,31 @@
+{
+    "bridge_speed": [
+        "30"
+    ],
+    "from": "User",
+    "inherits": "0.20mm Standard @BBL X1C",
+    "inner_wall_speed": [
+        "25"
+    ],
+    "layer_height": "0.1",
+    "name": "thimble",
+    "outer_wall_speed": [
+        "15"
+    ],
+    "print_extruder_id": [
+        "1"
+    ],
+    "print_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "print_settings_id": "thimble",
+    "skeleton_infill_density": "18%",
+    "skin_infill_density": "18%",
+    "sparse_infill_density": "18%",
+    "sparse_infill_pattern": "triangles",
+    "top_shell_layers": "7",
+    "travel_speed": [
+        "400"
+    ],
+    "version": "2.2.0.2"
+}

@@ -1,0 +1,43 @@
+{
+  "process": {
+    "layer_height": 0.10,
+    "initial_layer_height": 0.20,
+    "max_volumetric_speed": 2.5,
+    "print_speed": 30,
+    "outer_wall_speed": 15,
+    "inner_wall_speed": 25,
+    "infill_speed": 25,
+    "travel_speed": 400,
+    "small_perimeters_speed": 50,
+    "bridge_speed": 30,
+    "top_shell_layers": 7,
+    "sparse_infill_density": 18,
+    "infill_pattern": "Triangles",
+    "support_type": "Tree",
+    "support_threshold_angle": 30,
+    "top_surface_pattern": "Monotonic line",
+    "bottom_surface_pattern": "Monotonic"
+  },
+  "filament": {
+    "nozzle_temp": 240,
+    "bed_temp": 35,
+    "flow_ratio": 1.0,
+    "pressure_advance": false
+  },
+  "cooling": {
+    "min_fan_speed": 100,
+    "max_fan_speed": 100,
+    "keep_fan_always_on": true,
+    "cooling_slow_down": false,
+    "force_overhang_cooling": true,
+    "overhang_fan_speed": 100,
+    "aux_fan_speed": 70
+  },
+  "retraction": {
+    "length": 1.0,
+    "speed": 30,
+    "z_hop": 0,
+    "wipe_while_retract": true
+  }
+}
+

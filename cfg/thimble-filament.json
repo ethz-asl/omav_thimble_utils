@@ -1,0 +1,51 @@
+{
+    "default_filament_colour": [
+        "#000000"
+    ],
+    "fan_cooling_layer_time": [
+        "30"
+    ],
+    "fan_max_speed": [
+        "90"
+    ],
+    "fan_min_speed": [
+        "40"
+    ],
+    "filament_extruder_variant": [
+        "Direct Drive Standard"
+    ],
+    "filament_retract_before_wipe": [
+        "100%"
+    ],
+    "filament_retraction_length": [
+        "1"
+    ],
+    "filament_retraction_speed": [
+        "30"
+    ],
+    "filament_settings_id": [
+        "thimble"
+    ],
+    "filament_wipe": [
+        "1"
+    ],
+    "filament_z_hop": [
+        "0"
+    ],
+    "filament_z_hop_types": [
+        "Auto Lift"
+    ],
+    "from": "User",
+    "inherits": "Generic TPU",
+    "name": "thimble",
+    "overhang_fan_threshold": [
+        "10%"
+    ],
+    "slow_down_layer_time": [
+        "12"
+    ],
+    "slow_down_min_speed": [
+        "20"
+    ],
+    "version": "2.2.0.2"
+}
