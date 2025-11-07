@@ -1,4 +1,4 @@
-# OMAV Thimble Utils
+# OMAV thimble utils
 
 Forked from the [eFlesh](https://github.com/notvenky/eFlesh) repo, this is a trimmed down version for the OMAV platform.
 #####
