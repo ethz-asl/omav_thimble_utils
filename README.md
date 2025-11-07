@@ -4,6 +4,9 @@ Forked from the [eFlesh](https://github.com/notvenky/eFlesh) repo, this is a tri
 #####
 
 ## Getting Started
+
+LATER @luceharris will make a docker on crazy that you can use for making the thimble
+
 ```
 git clone --recurse-submodules git@github.com:ethz-asl/omav_thimble_utils.git
 cd omav_thimble_utils
@@ -15,13 +18,21 @@ conda env create -f env.yml
 conda activate thimble
 ```
 
+or venv (recommended)
 ```
 python -m venv /path/to/venv/thimble
 source /path/to/thimble/bin/activate
-pip install numpy scipy reskin-sensor matplotlib
+pip install numpy scipy reskin-sensor matplotlib meshio tqdm libigl
 ```
 
-## Sensor Design
+## Prerequisits
+
+- design the STL/OBJ file of your desired shape for the sensor. Other designs are on [FILL IN LATER]
+- get [N52 neodymium magnets](https://www.supermagnete.ch/scheibenmagnete-neodym/scheibenmagnet-9mm-3mm_S-09-03-N52N?group=lp-n52) N52 Ø9 mm, height 3 mm. This size is the best for SNR and provide a strong magnetism. 
+- 
+
+
+## Mesh generation
 ### Tested on Ubuntu 20.04, 22.04 and 24.04
 System pre-requisites
 ```
@@ -32,7 +43,7 @@ sudo apt-get update && sudo apt-get install -y build-essential cmake libgmp-dev 
 cd microstructure/microstructure_inflators && chmod +x build.sh && ./build.sh
 ```
 
-You're now all set to use ```regular.ipynb``` and ```cut-cell.ipynb```to make your own eFlesh sensors, ensure to provide the correct paths against all marked palceholders - like path to your OBJ/STL fle.
+You're now all set to use ```cut-cell.ipynb```to make your own eFlesh sensors, ensure to provide the correct paths against all marked placeholders - like path to your OBJ/STL fle.
 
 ## Sensor Fabrication
 
@@ -54,45 +65,8 @@ Please upload the arduino code located in ```arduino/5X_eflesh_stream/5X_eflesh_
 
 ## Sensor Characterization
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/77d09c24-e864-44c0-94fd-ab1c16a869ef"
-       width="400">
-</p>
+Data recording [data_collection.md]
 
-We characterize eFlesh's spatial resolution, normal force and shear force prediction accuracy through controlled experiments, The curated datasets can be found in ```characterization/datasets/```. For training, we use a simple two layered MLP with 128 nodes (```python train.py --mode <spatial/normal/shear> --folder /path/to/corresponding/dataset```).
 
-## Slip Detection
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/c4b08c86-2133-420a-a5de-988adfbe691d" width="400" alt="slip_detection">
-</p>
-
-We grasp different objects using the Hello Stretch Robot equipped with eFlesh, and tug at it to collect our dataset. The dataset can be found in ```slip_detection/data```, and the trained classifier is ```slip_detection/checkpoints/eflesh_linear.pkl```.
-
-## Visuo-Tactile Policy Learnig
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/3a67073b-86bd-47f2-8b17-40b094b6da39" width="400" alt="policies">
-</p>
-
-We perform four precise manipulation tasks, using the [Visuo-Skin](https://visuoskin.github.io) framework, achieving an average success rate of >90%. Representative videos of trained policies can be found on [our website](https://e-flesh.com/).
-
-## Primary References
-eFlesh draws upon these prior works:
-
-1. [Cut-Cell Microstructures for Two-scale Structural Optimization](https://cims.nyu.edu/gcl/papers/2024-cutcells.pdf)
-2. [Learning Precise, Contact-Rich Manipulation through Uncalibrated Tactile Skins](https://visuoskin.github.io)
-3. [AnySkin: Plug-and-play Skin Sensing for Robotic Touch](https://any-skin.github.io)
-4. [ReSkin: versatile, replaceable, lasting tactile skins](https://reskin.dev)
-
-## Cite 
-If you build on our work or find it useful, please cite it using the following bibtex
-```
-@article{pattabiraman2025eflesh,
-  title={eFlesh: Highly customizable Magnetic Touch Sensing using Cut-Cell Microstructures},
-  author={Pattabiraman, Venkatesh and Huang, Zizhou and Panozzo, Daniele and Zorin, Denis and Pinto, Lerrel and Bhirangi, Raunaq},
-  journal={arXiv preprint arXiv:2506.09994},
-  year={2025}
-}
-```
 
