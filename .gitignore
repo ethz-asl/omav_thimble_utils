@@ -177,3 +177,9 @@ cython_debug/
 
 data.json
 temp.json
+
+########################### 
+# built libs
+###########################
+3rdparty/
+*.obj
